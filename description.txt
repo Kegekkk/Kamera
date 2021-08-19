@@ -1,0 +1,98 @@
+-------------------------------------------
+[c/FA527F:Kamera] by [c/52B7FA:Kege]
+-------------------------------------------
+[c/52B7FA:This mod allows you to SnapShoot continuously ]
+[c/52B7FA:with a set frequency in game. ] 
+
+[c/52B7FA:It can be used to export in-game animations as ]
+[c/52B7FA:image seaquence.] 
+
+Contact [c/FA527F: Kege#5545] on discord if you have any 
+issues.
+
+-------------------------------------------
+
+[c/52B7FA:UI界面/ShowUI(default:U)]
+
+在UI界面可以调整连续截图的次数以及间隔的tick数，
+Terraria每一秒有60个tick，然后动画的每一帧都会持续n个
+tick，所以这里的tick数需要设置成n，才能够保证连续截取
+到正确的帧.
+
+！！！注意：当tick数小于6时，会出现截图数变少的情况，
+猜测原因是游戏反应不过来（
+
+所以，当帧的持续时间小于6tick时，可以试着将tick数设置为
+A*B+A/2
+每一帧的tick数 -> A    动画一次循环的帧数 -> B
+
+默认值是我用来截取角色的行走动画的
+
+下方还有两个选项，打开快速截屏，你的 截图键(J) 会变成
+截屏，截屏无法自动连续，因为截屏导出的文件的文件名我
+设置不了，多次在同一秒内截屏的话会覆盖上一次的截屏
+
+关闭透明背景的话，截图和截屏都会捕获背景
+
+adjust the number of snapshot and ticks between two snapshot
+in the UI interface.
+frames of different animation in game lasts different ticks，
+set the right number of tick to get the correct animaiton.
+
+!!!  If the number of ticks is below 6,you cannot get as 
+many images as you want, because the game needs time to snapshoot.
+
+If the frame lasts less than 6 ticks, try to set the 
+number of tiks to.
+A*B+A/2
+A : ticks the frame last
+B : Number of frames in one loop of the animation
+
+the default value is what I use to capture character's 
+moving animation.
+
+If you enable QuickScreenhost, your Capture Key(L),will 
+become a Screenhos Key, but please not take multiple 
+screenshots in one second. Because unlike snapshoot，
+I cannot set the name of those exported images,it will 
+overwrite the image of previous screenshot.
+
+When you turn off TransparentBackground, both snapshoot 
+and screenhost will capture background.
+
+-------------------------------------------
+
+[c/52B7FA:截图/Capture(default:J)]
+
+截图前先在游戏的拍照模式下设置好截图范围.
+
+Set the two EdgePoints in CameraMode before shooting.
+
+-------------------------------------------
+
+[c/52B7FA:锁定人物位置/FixChracterPosition(default:K)]
+
+由于游戏内截图范围是以“块”为单位的，而人物移动时并不是
+每次移动一个或多个方块，所以在截取人物走动的动画时，
+需要将人物锁定，来确保人物在图片内的位置不变，
+减少后期的工作量.
+
+Because we can only set the Edge at TileCoordinate 
+(1 = a block), and player move in WorldCoordinate
+(1 << a block),so we need to fix the character when we
+try to capture character's moving animation, in that way,
+we can keep the character's position in the image fixed.
+
+-------------------------------------------
+
+[c/52B7FA:固定截图范围和角色的相对位置/]
+[c/52B7FA:Fix EdgePoints Relative Position(default:L)]
+
+固定相对位置后走几步，就可以发现我在上面提到的人物和
+截取范围直接因为坐标系不同带来的问题啦
+这是我一开始截取人物行走动画的思路，暂时想不到有什么
+用法，先保留下来啦.
+
+After fix the relative position to character, take a walk, 
+you will find out the TileCoordinate & WorldCoordinate 
+issue I mentioned above.

@@ -1,0 +1,3 @@
+displayName = Kamera - BetterSnapShoot/更好的快照
+author = Kege
+version = 0.1
